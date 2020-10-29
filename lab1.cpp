@@ -1,24 +1,23 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-class Wektor2D
+struct Wektor2D
 {
-public:
-    Wektor2D(double xx, double yy)
-    {
-        x = xx;
-        y = yy;
-    }
-    void print() { cout << "x = " << x << '\n' << "y = " << y << endl; }
+    vector< vector< double > > wektor{{x, y}};
+    void                       print() { cout << "x = " << x << '\n' << "y = " << y << endl; }
+    void                       norm() { cout << "norma wektora = " << norma << endl; }
 
-private:
     double x;
     double y;
+    double norma = abs(x) + abs(y);
 };
 
 int main()
 {
-    Wektor2D v1(10, 20);
+    Wektor2D v1;
+    v1.x = 10;
+    v1.y = 20;
     v1.print();
-    // v1.norm();
+    v1.norm();
 }
